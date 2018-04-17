@@ -1,17 +1,19 @@
-//Get the current URL
-var currentUrl = window.location.href;
+function checkFormView(currentUrl) {
 
-//Check URL for the sp form string
-var newForm = (checkForSubstring(currentUrl, 'newform'));
-var dispForm = (checkForSubstring(currentUrl, 'dispform'));
-var editForm = (checkForSubstring(currentUrl, 'editform'));
+    var newForm = (checkForSubstring(currentUrl, 'newform'));
+    var dispForm = (checkForSubstring(currentUrl, 'dispform'));
+    var editForm = (checkForSubstring(currentUrl, 'editform'));
 
-if (newForm === true) {
-    //do stuff if new form
-} else if (dispForm === true) {
-    //do stuff if disp form
-} else if (editForm === true) {
-    //do stuff if edit form
+    if (newForm) {
+        //do stuff if new form
+    } else if (dispForm) {
+        //do stuff if disp form
+    } else if (editForm) {
+        //do stuff if edit form
+    } else {
+        console.log('Not a valid form URL.')
+    }
+    
 }
 
 //String contains (not case sensitive)
