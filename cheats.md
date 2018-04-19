@@ -8,6 +8,11 @@ _layouts/15/savetmpl.aspx
 /_layouts/permsetup.aspx
 ```
 
+## Go to site permissions
+```
+/_layouts/15/user.aspx
+```
+
 ## Go to web part maintenance
 
 ```
