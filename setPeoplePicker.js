@@ -38,8 +38,8 @@ function getUserDetails() {
 function populatePeoplePicker(fieldName, userEmail) {
     ExecuteOrDelayUntilScriptLoaded(function() {
         setTimeout(function() {
-            var ppDiv = $('[id$="ClientPeoplePicker"][title=' + fieldName + ']');
-            var ppEditor = ppDiv.find('[title=' + fieldName + ']');
+            var ppDiv = $('[id$="ClientPeoplePicker"][title="' + fieldName + '"]');
+            var ppEditor = ppDiv.find('[title="' + fieldName + '"]');
             var spPP = SPClientPeoplePicker.SPClientPeoplePickerDict[ppDiv[0].id];
             ppEditor.val(userEmail);
             spPP.AddUnresolvedUserFromEditor(true);
