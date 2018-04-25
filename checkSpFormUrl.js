@@ -1,22 +1,21 @@
+//Check item form view
 function checkFormView(currentUrl) {
-
     var newForm = (checkForSubstring(currentUrl, 'newform'));
     var dispForm = (checkForSubstring(currentUrl, 'dispform'));
     var editForm = (checkForSubstring(currentUrl, 'editform'));
 
     if (newForm) {
-        //do stuff if new form
+        spNewForm();
     } else if (dispForm) {
-        //do stuff if disp form
+        spDispForm();
     } else if (editForm) {
-        //do stuff if edit form
+        spEditForm();
     } else {
         console.log('Not a valid form URL.')
-    }
-    
+    }    
 }
 
-//String contains (not case sensitive)
+//Check if string contains substring (not case sensitive)
 function checkForSubstring(fullStr, subStr) {
     fullStr = fullStr.toLowerCase();
     subStr = subStr.toLowerCase();
@@ -25,4 +24,28 @@ function checkForSubstring(fullStr, subStr) {
     } else {
         return false;
     }
+}
+
+//New form
+function spNewForm() {
+    //Add class to our custom form div
+    document.getElementById('root').classList.add('sp-new-form');
+    //Move save and cancel buttons to our custom action area (jQuery)
+    $('#sp-form-save').append($('.ms-toolbar input[value="Save"]')[0]);
+    $('#sp-form-cancel').append($('.ms-toolbar input[value="Cancel"]')[0]);
+}
+
+//Disp form
+function spDispForm() {
+    //Add class to our custom form div
+    document.getElementById('root').classList.add('sp-disp-form');
+}
+
+//Edit form
+function spEditForm() {
+    //Add class to our custom form div
+    document.getElementById('root').classList.add('sp-edit-form');
+    //Move save and cancel buttons to our custom action area (jQuery)
+    $('#sp-form-save').append($('.ms-toolbar input[value="Save"]')[0]);
+    $('#sp-form-cancel').append($('.ms-toolbar input[value="Cancel"]')[0]);
 }
