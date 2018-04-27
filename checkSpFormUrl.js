@@ -30,9 +30,16 @@ function checkForSubstring(fullStr, subStr) {
 function spNewForm() {
     //Add class to our custom form div
     document.getElementById('root').classList.add('sp-new-form');
-    //Move save and cancel buttons to our custom action area (jQuery)
-    $('#sp-form-save').append($('.ms-toolbar input[value="Save"]')[0]);
-    $('#sp-form-cancel').append($('.ms-toolbar input[value="Cancel"]')[0]);
+    
+    //move save button to our actions area
+    const saveBtn = document.querySelector('.ms-toolbar input[value="Save"]');
+    const saveEl = document.querySelector('#sp-form-save');
+    saveEl.appendChild(saveBtn);
+    
+    //move cancel button to our actions area
+    const cancelBtn = document.querySelector('.ms-toolbar input[value="Cancel"]');
+    const cancelEl = document.querySelector('#sp-form-cancel');
+    saveEl.appendChild(saveBtn);
 }
 
 //Disp form
@@ -45,7 +52,14 @@ function spDispForm() {
 function spEditForm() {
     //Add class to our custom form div
     document.getElementById('root').classList.add('sp-edit-form');
-    //Move save and cancel buttons to our custom action area (jQuery)
-    $('#sp-form-save').append($('.ms-toolbar input[value="Save"]')[0]);
-    $('#sp-form-cancel').append($('.ms-toolbar input[value="Cancel"]')[0]);
+    
+    //move save button to our actions area
+    const saveBtn = document.querySelector('.ms-toolbar input[value="Save"]');
+    const saveEl = document.querySelector('#sp-form-save');
+    saveEl.appendChild(saveBtn);
+    
+    //move cancel button to our actions area
+    const cancelBtn = document.querySelector('.ms-toolbar input[value="Cancel"]');
+    const cancelEl = document.querySelector('#sp-form-cancel');
+    saveEl.appendChild(saveBtn);
 }
