@@ -1,7 +1,8 @@
 function getUserDetails() {
     $.ajax({
         url: spPageContextInfo.webAbsoluteUrl + '/_api/SP.UserProfiles.PeopleManager/GetMyProperties',
-        headers: { Accept: "application/json;odata=verbose" },
+        type: 'GET',
+        headers: { Accept: 'application/json;odata=verbose' },
         success: function(data) {
             //console.log(data);
             var userProfileProps = data.d.UserProfileProperties.results;
@@ -22,7 +23,7 @@ function getUserDetails() {
             //console.log(userData);
         },
         error: function(xhr) {
-            console.log(xhr.status + ": " + xhr.statusText);
+            console.log(xhr.status + ': ' + xhr.statusText);
         }
     });
 
