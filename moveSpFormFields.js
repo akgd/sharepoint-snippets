@@ -6,31 +6,31 @@ type - type of data (will be applied as class for optional styling)
 helpText - field help description (if any)
 */
 var focusFields = [{
-        fieldName: 'Primary Focus',
+        fieldInternalName: 'Primary Focus',
         displayName: 'What is the project\'s primary focus?',
         type: 'choice',
         helpText: ''
     },
     {
-        fieldName: 'Primary research, evaluation, or data collection and reporting approaches and methods',
+        fieldInternalName: 'Primary research, evaluation, or data collection and reporting approaches and methods',
         displayName: 'Which specific methods does the project use? (Check all that apply)',
         type: 'multi-choice',
         helpText: ''
     },
     {
-        fieldName: 'Specific knowledge translation, dissemination, and utilization methods',
+        fieldInternalName: 'Specific knowledge translation, dissemination, and utilization methods',
         displayName: 'Which specific methods does the project use? (Check all that apply)',
         type: 'multi-choice',
         helpText: ''
     },
     {
-        fieldName: 'Promoting behavior change methods',
+        fieldInternalName: 'Promoting behavior change methods',
         displayName: 'Which specific methods does the project use? (Check all that apply)',
         type: 'multi-choice',
         helpText: ''
     },
     {
-        fieldName: 'Specific systems change methods',
+        fieldInternalName: 'Specific systems change methods',
         displayName: 'Which specific methods does the project use? (Check all that apply)',
         type: 'multi-choice',
         helpText: ''
@@ -42,7 +42,7 @@ function generateFormSection(arr, targetElId) {
 
     for (i = 0; i < arr.length; i++) {
 
-        var cleanName = cleanStr(arr[i].fieldName);
+        var cleanName = cleanStr(arr[i].fieldInternalName);
         var dataField = '#data-' + cleanName;
         var newRow = '#field-' + cleanName;
 
