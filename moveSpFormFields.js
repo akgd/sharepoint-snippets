@@ -42,9 +42,9 @@ function generateFormSection(arr, targetElId) {
 
     for (i = 0; i < arr.length; i++) {
 
-        var cleanName = cleanStr(arr[i].fieldInternalName);
-        var dataField = '#data-' + cleanName;
-        var newRow = '#field-' + cleanName;
+        const cleanName = arr[i].fieldInternalName;
+        const dataField = '#data-' + cleanName;
+        const newRow = '#field-' + cleanName;
 
         const newEl = `
             <div id="field-${cleanName}" class="field-row">
@@ -53,14 +53,16 @@ function generateFormSection(arr, targetElId) {
                 <div class="field-help">${arr[i].helpText}</div>
             </div>
             `;
-        document.querySelector('#' + targetElId).insertAdjacentHTML('beforeend', newEl);
-        const spFieldEl = document.querySelector(dataField);
-        document.querySelector(newRow + ' .field-data').appendChild(spFieldEl);
-    }
+            
+        //Insert new element into target div
+       	document.querySelector('#' + targetElId).insertAdjacentHTML('beforeend', newEl);
+       		
+       	//Find the SP form field
+       	const spFieldId = '[id^="' + arr[i].fieldInternalName + '_"]';
+	const spFieldEl = document.querySelector(spFieldId);
+        
+        //Move field to new element
+	document.querySelector(newRow + ' .field-data').appendChild(spFieldEl);
 
-    function cleanStr(str) {
-        str = str.trim();
-        str = str.replace(/[^a-zA-Z]/g, '');
-        return str;
     }
 }
