@@ -1,3 +1,13 @@
+/* Use to determine the classic SP form type
+ * the user is currently viewing. Run specific
+ * functions based on whether it is a NewForm,
+ * EditForm or DispForm. In the example below,
+ * I add a class to the form based on the type,
+ * and move the save and cancel buttons to a
+ * custom element.
+ */
+ 
+
 //Check item form view
 function checkFormView(currentUrl) {
     var newForm = (checkForSubstring(currentUrl, 'newform'));
@@ -11,7 +21,7 @@ function checkFormView(currentUrl) {
     } else if (editForm) {
         spEditForm();
     } else {
-        console.log('Not a valid form URL.')
+        //console.log('Not a valid form URL.')
     }    
 }
 
