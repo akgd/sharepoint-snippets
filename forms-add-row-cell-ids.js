@@ -4,13 +4,13 @@
  * when scripting or applying styles.
  */
 
-const spFormLabels = document.querySelectorAll('.ms-formlabel');
+var spFormLabels = document.querySelectorAll('.ms-formlabel');
 for (var i = 0; i < spFormLabels.length; i++) {
-    let label = spFormLabels[i].textContent;
+    var label = spFormLabels[i].textContent;
     label = label.trim();
     label = label.replace(/[^a-zA-Z0-9]/g, '');
-    const row = spFormLabels[i].closest('tr');
+    var row = spFormLabels[i].closest('tr');
     row.id = 'row-' + label;
-    const dataCell = row.getElementsByClassName('ms-formbody')[0];
+    var dataCell = row.getElementsByClassName('ms-formbody')[0];
     dataCell.id = 'data-' + label;
 }
