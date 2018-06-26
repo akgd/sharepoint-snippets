@@ -1,11 +1,9 @@
-//example of field array
-/*
-fieldName - name of the field as seen in the list settings
-displayName - name you want to appear
-type - type of data (will be applied as class for optional styling)
-helpText - field help description (if any)
-*/
-var focusFields = [{
+/* Example of field array:
+ * fieldName - name of the field as seen in the list settings
+ * displayName - name you want to appear
+ * helpText - field help description (if any)
+ */
+const focusFields = [{
         fieldInternalName: 'Primary Focus',
         displayName: 'What is the project\'s primary focus?',
         type: 'choice',
@@ -59,7 +57,7 @@ function generateFormSection(arr, targetElId) {
        		
        	//Find the SP form field
        	const spFieldId = '[id^="' + arr[i].fieldInternalName + '_"]';
-	const spFieldEl = document.querySelector(spFieldId);
+	    const spFieldEl = document.querySelector(spFieldId);
         
         //Move field to new element
 	document.querySelector(newRow + ' .field-data').appendChild(spFieldEl);
