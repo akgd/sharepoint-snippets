@@ -1,4 +1,4 @@
-/*Requires jQuery*/
+/* Requires jQuery for call */
 function getUserDetails() {
     $.ajax({
         url: spPageContextInfo.webAbsoluteUrl + '/_api/SP.UserProfiles.PeopleManager/GetMyProperties',
@@ -8,63 +8,49 @@ function getUserDetails() {
 
             var properties = data.d.UserProfileProperties.results;
 
-            var userData = {
-                accountName: '',
-                firstName: '',
-                lastName: '',
-                preferredName: '',
-                manager: '',
-                email: '',
-                pictureUrl: '',
-                department: '',
-                jobTitle: '',
-                phone: '',
-                office: '',
-                level: '',
-                employeeId: '',
-            }
+            var userData = {};
 
             for (var i = 0; i < properties.length; i++) {
 
                 var property = properties[i];
 
-                if (property.Key == 'AccountName') {
+                if (property.Key === 'AccountName') {
                     userData.accountName = property.Value;
                 }
-                if (property.Key == 'FirstName') {
+                if (property.Key === 'FirstName') {
                     userData.firstName = property.Value;
                 }
-                if (property.Key == 'LastName') {
+                if (property.Key === 'LastName') {
                     userData.lastName = property.Value;
                 }
-                if (property.Key == 'PreferredName') {
+                if (property.Key === 'PreferredName') {
                     userData.preferredName = property.Value;
                 }
-                if (property.Key == 'Manager') {
+                if (property.Key ==== 'Manager') {
                     userData.manager = property.Value;
                 }
-                if (property.Key == 'WorkEmail') {
+                if (property.Key === 'WorkEmail') {
                     userData.email = property.Value;
                 }
-                if (property.Key == 'PictureURL') {
+                if (property.Key === 'PictureURL') {
                     userData.pictureUrl = property.Value;
                 }
-                if (property.Key == 'Department') {
+                if (property.Key === 'Department') {
                     userData.department = property.Value;
                 }
-                if (property.Key == 'Title') {
+                if (property.Key === 'Title') {
                     userData.jobTitle = property.Value;
                 }
-                if (property.Key == 'WorkPhone') {
+                if (property.Key === 'WorkPhone') {
                     userData.phone = property.Value;
                 }
-                if (property.Key == 'Office') {
+                if (property.Key === 'Office') {
                     userData.office = property.Value;
                 }
-                if (property.Key == 'Level') {
+                if (property.Key === 'Level') {
                     userData.level = property.Value;
                 }
-                if (property.Key == 'employeeID') {
+                if (property.Key === 'employeeID') {
                     userData.employeeId = property.Value;
                 }
             }
