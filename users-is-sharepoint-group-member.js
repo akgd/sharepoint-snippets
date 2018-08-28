@@ -1,5 +1,4 @@
 //jQuery required
-
 function isSpGroupMember(spGroupName) {
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/sitegroups/getByName('" + spGroupName + "')/Users?$filter=Id eq " + _spPageContextInfo.userId,
