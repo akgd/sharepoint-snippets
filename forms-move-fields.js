@@ -1,9 +1,9 @@
-/* Example of field array:
- * fieldName - name of the field as seen in the list settings
- * displayName - name you want to appear
- * helpText - field help description (if any)
- */
-const focusFields = [{
+// Example of field array:
+// fieldName - name of the field as seen in the list settings
+// displayName - name you want to appear
+// helpText - field help description (if any)
+
+var focusFields = [{
         fieldInternalName: 'Primary Focus',
         displayName: 'What is the project\'s primary focus?',
         type: 'choice',
@@ -35,16 +35,15 @@ const focusFields = [{
     },
 ];
 
-//use to generate a form section from an array
+// To generate a form section from an array
 function generateFormSection(arr, targetElId) {
 
     for (i = 0; i < arr.length; i++) {
+        var cleanName = arr[i].fieldInternalName;
+        var dataField = '#data-' + cleanName;
+        var newRow = '#field-' + cleanName;
 
-        const cleanName = arr[i].fieldInternalName;
-        const dataField = '#data-' + cleanName;
-        const newRow = '#field-' + cleanName;
-
-        const newEl = `
+        var newEl = `
             <div id="field-${cleanName}" class="field-row">
                 <div class="field-title">${arr[i].displayName}</div>
                 <div id="field-data-${cleanName}" class="field-data"></div>
@@ -52,15 +51,14 @@ function generateFormSection(arr, targetElId) {
             </div>
             `;
             
-        //Insert new element into target div
+        // Insert new element into target div
        	document.querySelector('#' + targetElId).insertAdjacentHTML('beforeend', newEl);
        		
-       	//Find the SP form field
-       	const spFieldId = '[id^="' + arr[i].fieldInternalName + '_"]';
-	    const spFieldEl = document.querySelector(spFieldId);
+       	// Find the SP form field
+       	var spFieldId = '[id^="' + arr[i].fieldInternalName + '_"]';
+	    var spFieldEl = document.querySelector(spFieldId);
         
-        //Move field to new element
+        // Move field to new element
 	document.querySelector(newRow + ' .field-data').appendChild(spFieldEl);
-
     }
 }

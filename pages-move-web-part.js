@@ -1,23 +1,31 @@
-//remember to add IE polyfills
+// Remember to add IE polyfills
 
+// Use to move web parts on a classic page
 function moveWebPart(wpTitle, elementId, hideTitleBool) {
-    var webParts = document.querySelectorAll('.ms-webpart-titleText'); //get all web parts on page
-    var targetEl = document.querySelector('#' + elementId); //get the element we want to move a part to
-    for (var i = 0; i < webParts.length; i++) { //for each web part on the page...
-        if (webParts[i].textContent == wpTitle) { //if this is the wp title we are looking for...
-            var getWp = webParts[i].closest('[id^="MSOZoneCell_"]'); //find the parent
+    // Get all web parts on the page
+    var webParts = document.querySelectorAll('.ms-webpart-titleText');
+
+    // Get the target element
+    var targetEl = document.querySelector('#' + elementId);
+    for (var i = 0; i < webParts.length; i++) { 
+        if (webParts[i].textContent == wpTitle) {
+            var getWp = webParts[i].closest('[id^="MSOZoneCell_"]');
             var getWpTitleBar = webParts[i].closest('.ms-webpart-chrome-title');
-            var isInEditMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value; //check if we are in edit mode
-            if ((isInEditMode != 1) && hideTitleBool) { //if not in edit mode and title should be hidden
+
+            // Check if we're in edit mode
+            var isInEditMode = document.forms[MSOWebPartPageFormName].MSOLayout_InDesignMode.value;
+            // Hide web part title if not in edit mode 
+            if ((isInEditMode != 1) && hideTitleBool) {
                 getWpTitleBar.style.display = 'none';
             }
-            targetEl.appendChild(getWp); //move web part to element
+            // Move the web part to the target element
+            targetEl.appendChild(getWp);
             break;
         }
     }
 }
 
-//example usage
+// Example usage
 document.addEventListener('DOMContentLoaded', function() {
     moveWebPart('Content Editor', 'data', true);
     moveWebPart('Special Documents', 'data', false);

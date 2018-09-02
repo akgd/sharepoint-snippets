@@ -1,21 +1,24 @@
 function limitMultiChoice(internalFieldName, isLimited, limitedNum) {
-    var multiChoiceInputs = document.querySelectorAll('table[id^="' + internalFieldName + '_"] input'); //get all multi-choice inputs
+    // Get all multi-choice inputs
+    var multiChoiceInputs = document.querySelectorAll('table[id^="' + internalFieldName + '_"] input'); 
     for (var i = 0; i < multiChoiceInputs.length; i++) {
-        onChoiceClick(multiChoiceInputs, multiChoiceInputs[i], isLimited, limitedNum); //run function on each input
+        onChoiceClick(multiChoiceInputs, multiChoiceInputs[i], isLimited, limitedNum);
     }
 }
 
 function onChoiceClick(allInputs, inputEl, isLimited, limitedNum) {
     inputEl.addEventListener('click', function() {
-        event.target.classList.toggle('selected'); //toggle selected class when clicked
-        var selectedCount = 0; //counter for inputs where 'selected' class exists
-        for (var i = 0; i < allInputs.length; i++) { //check each input for 'selected' class
+        // Toggle selected class on click
+        event.target.classList.toggle('selected'); 
+        var selectedCount = 0; 
+        for (var i = 0; i < allInputs.length; i++) {
             if (allInputs[i].classList.contains('selected')) {
                 selectedCount++;
             }
         }
         if (isLimited) {
-            if (selectedCount > limitedNum) { //if too many selections, run function
+            // If selections exceed our max
+            if (selectedCount > limitedNum) {
                 tooManySelections(limitedNum, selectedCount);
             }
         }
@@ -23,7 +26,9 @@ function onChoiceClick(allInputs, inputEl, isLimited, limitedNum) {
 }
 
 function tooManySelections(max, selected) {
-    alert('You have selected ' + selected + ' options. Please limit your choices to ' + max + '.'); //example behavior
+     // Example
+    alert('You have selected ' + selected + ' options. Please limit your choices to ' + max + '.'); 
 }
 
-limitMultiChoice('MultiTest', true, 6); //example call
+// Example
+limitMultiChoice('MultiTest', true, 6);
