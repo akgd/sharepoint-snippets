@@ -1,3 +1,3 @@
-SharePoint JS Snippets
+SharePoint Snippets
 ==========
-A collection of JS scripts for SharePoint Online.
+A collection of scripts and guides for SharePoint Online.
