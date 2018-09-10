@@ -1,64 +1,58 @@
 // Example of field array:
-// fieldName - name of the field as seen in the list settings
+// internalName - internal name of the SP field
 // displayName - name you want to appear
 // helpText - field help description (if any)
+// specialClasses - useful for scripting conditions and adding styles
 
 var focusFields = [{
-        fieldInternalName: 'Primary Focus',
-        displayName: 'What is the project\'s primary focus?',
-        type: 'choice',
-        helpText: ''
+        internalName: 'Title',
+        displayName: 'Project Title',
+        helpText: '',
+        specialClasses: ''
     },
     {
-        fieldInternalName: 'Primary research, evaluation, or data collection and reporting approaches and methods',
-        displayName: 'Which specific methods does the project use? (Check all that apply)',
-        type: 'multi-choice',
-        helpText: ''
+        internalName: 'ProjectLead',
+        displayName: 'Project Lead',
+        helpText: '',
+        specialClasses: ''
     },
     {
-        fieldInternalName: 'Specific knowledge translation, dissemination, and utilization methods',
-        displayName: 'Which specific methods does the project use? (Check all that apply)',
-        type: 'multi-choice',
-        helpText: ''
-    },
-    {
-        fieldInternalName: 'Promoting behavior change methods',
-        displayName: 'Which specific methods does the project use? (Check all that apply)',
-        type: 'multi-choice',
-        helpText: ''
-    },
-    {
-        fieldInternalName: 'Specific systems change methods',
-        displayName: 'Which specific methods does the project use? (Check all that apply)',
-        type: 'multi-choice',
-        helpText: ''
+        internalName: 'ProjectStatus',
+        displayName: 'What is the current status?',
+        helpText: '',
+        specialClasses: ''
     },
 ];
 
 // To generate a form section from an array
-function generateFormSection(arr, targetElId) {
+// Handles fields in classic edit and display forms
+function generateFormSection(arr, targetElId, editable) {
 
     for (i = 0; i < arr.length; i++) {
-        var cleanName = arr[i].fieldInternalName;
+
+        var cleanName = arr[i].internalName;
+        var specialClasses = arr[i].specialClasses;
         var dataField = '#data-' + cleanName;
         var newRow = '#field-' + cleanName;
 
-        var newEl = `
-            <div id="field-${cleanName}" class="field-row">
-                <div class="field-title">${arr[i].displayName}</div>
-                <div id="field-data-${cleanName}" class="field-data"></div>
-                <div class="field-help">${arr[i].helpText}</div>
-            </div>
-            `;
-            
-        // Insert new element into target div
-       	document.querySelector('#' + targetElId).insertAdjacentHTML('beforeend', newEl);
-       		
-       	// Find the SP form field
-       	var spFieldId = '[id^="' + arr[i].fieldInternalName + '_"]';
-	    var spFieldEl = document.querySelector(spFieldId);
+        var newEl = '<div id="field-' + cleanName + '" class="field-row ' + specialClasses + '"><div class="field-title">' + arr[i].displayName + '</div><div id="field-data-' + cleanName + '" class="field-data"></div><div class="field-help">' + arr[i].helpText + '</div></div>';
+
+        //Insert new element into target div
+        document.querySelector('#' + targetElId).insertAdjacentHTML('beforeend', newEl);
         
-        // Move field to new element
-	document.querySelector(newRow + ' .field-data').appendChild(spFieldEl);
+        if (editable) {
+            //Find the actual SP form data field
+            var spFieldId = '[id^="' + arr[i].internalName + '_"]';
+            var spFieldEl = document.querySelector(spFieldId);
+            document.querySelector(newRow + ' .field-data').appendChild(spFieldEl);
+        } else {
+            var spFieldLabel = '[name="SPBookmark_' + arr[i].internalName + '"]';
+            var spFieldRow = $(spFieldLabel).closest('tr');
+            var rowClass = 'row-' + arr[i].internalName;
+            $(spFieldRow).addClass(rowClass);
+            var target = '.' + rowClass + ' .ms-formbody';
+            $(newRow + ' .field-data').append($(target));
+        }     
     }
 }
+
