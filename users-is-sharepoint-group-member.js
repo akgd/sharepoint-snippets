@@ -1,27 +1,15 @@
 // jQuery required
-function isSpGroupMember(spGroupName) {
+function isSpGroupMember(spGroupName, result) {
     $.ajax({
         url: _spPageContextInfo.webAbsoluteUrl + "/_api/web/sitegroups/getByName('" + spGroupName + "')/Users?$filter=Id eq " + _spPageContextInfo.userId,
         method: "GET",
         headers: { "Accept": "application/json; odata=verbose" },
         success: function(data) {
             if (data.d.results[0] !== undefined) {
-                isInGroup();
+                result(true);
             } else {
-                isNotInGroup();
+                result(false);
             }
         }
     });
-
-
-}
-
-// Run if user is in the group
-function isInGroup() {
-    console.log('User is in the "' + spGroupName + '" SharePoint group.');
-}
-
-// Run if user is not in the group
-function isNotInGroup() {
-    console.log('User is NOT in the "' + spGroupName + '" SharePoint group.');
 }
