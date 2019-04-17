@@ -1,10 +1,14 @@
 ## Save site as template
 
-_layouts/15/savetmpl.aspx
+/_layouts/15/savetmpl.aspx
 
 ## Setup groups for existing site
 
 /_layouts/permsetup.aspx
+
+## Create sub-site
+
+/_layouts/15/newsbweb.aspx
 
 ## Go to site permissions
 
