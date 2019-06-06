@@ -1,4 +1,4 @@
-## Direct Version History
+## Direct version history
 /_layouts/15/Versions.aspx?list={yourlistGUID}&ID=youritemID
 
 ## Save site as template
