@@ -30,4 +30,4 @@
 /_layouts/15/people.aspx?MembershipGroupId=0
 
 ## Modern link target blank
-<a href="" data-interception="off" target="_blank" rel="noopener noreferrer"></a>
+`<a href="" data-interception="off" target="_blank" rel="noopener noreferrer"></a>`
