@@ -17,6 +17,9 @@
 
 /_layouts/15/user.aspx
 
+## Access requests
+/Access%20Requests/pendingreq.aspx?mbypass=1
+
 ## Go to web part maintenance
 
 ?contents=1
