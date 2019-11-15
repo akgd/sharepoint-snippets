@@ -32,5 +32,8 @@
 
 /_layouts/15/people.aspx?MembershipGroupId=0
 
+## Workflow history list
+/Lists/Workflow%20History/AllItems.aspx
+
 ## Modern link target blank
 `<a href="" data-interception="off" target="_blank" rel="noopener noreferrer"></a>`
