@@ -1,4 +1,4 @@
-/* Requires jQuery for call */
+/* Requires jQuery */
 function getUserDetails() {
     $.ajax({
         url: spPageContextInfo.webAbsoluteUrl + '/_api/SP.UserProfiles.PeopleManager/GetMyProperties',
@@ -26,7 +26,7 @@ function getUserDetails() {
                 if (property.Key === 'PreferredName') {
                     userData.preferredName = property.Value;
                 }
-                if (property.Key ==== 'Manager') {
+                if (property.Key === 'Manager') {
                     userData.manager = property.Value;
                 }
                 if (property.Key === 'WorkEmail') {
