@@ -1,7 +1,7 @@
 /* Requires jQuery */
 function getUserDetails() {
     $.ajax({
-        url: spPageContextInfo.webAbsoluteUrl + '/_api/SP.UserProfiles.PeopleManager/GetMyProperties',
+        url: _spPageContextInfo.webAbsoluteUrl + '/_api/SP.UserProfiles.PeopleManager/GetMyProperties',
         type: 'GET',
         headers: { Accept: 'application/json;odata=verbose' },
         success: function(data) {
