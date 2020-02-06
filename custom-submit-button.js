@@ -1,4 +1,4 @@
-    // Handle custom submit buttons
+    // handle custom submit buttons
     $('.sp-custom-save').click(function () {
         var button = $(this);
         // check if this is a double click
@@ -16,5 +16,6 @@
     });
 
     function customSubmit() {
+        // use jQuery .first because there are multiple SP save buttons
         $('.ms-toolbar input[value="Save"]').first().click();
     }
