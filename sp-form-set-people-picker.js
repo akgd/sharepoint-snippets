@@ -45,3 +45,4 @@ function populatePeoplePicker(fieldName, userEmail) {
             spPP.AddUnresolvedUserFromEditor(true);
         }, 0);
     }, 'clientpeoplepicker.js');
+}
