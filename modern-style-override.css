@@ -1,3 +1,4 @@
+/* When users want spacing between two zones to look the same */
 div[data-sp-a11y-id="ControlZone_xxxxxxxxxx"] {
   margin-bottom:0!important;
   padding-bottom:0!important;
