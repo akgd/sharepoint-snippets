@@ -5,6 +5,7 @@
 ## App registration/access
 
 /_layouts/15/appregnew.aspx
+
 /_layouts/15/appinv.aspx
 
 ## Save site as template
