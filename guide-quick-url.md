@@ -2,7 +2,7 @@
 
 /_layouts/15/Versions.aspx?list={yourlistGUID}&ID=youritemID
 
-## App registration/access
+## App registration
 
 /_layouts/15/appregnew.aspx
 
