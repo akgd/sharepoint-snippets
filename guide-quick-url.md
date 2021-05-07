@@ -1,5 +1,11 @@
 ## Direct version history
+
 /_layouts/15/Versions.aspx?list={yourlistGUID}&ID=youritemID
+
+## App registration/access
+
+/_layouts/15/appregnew.aspx
+/_layouts/15/appinv.aspx
 
 ## Save site as template
 
@@ -18,6 +24,7 @@
 /_layouts/15/user.aspx
 
 ## Access requests
+
 /Access%20Requests/pendingreq.aspx?mbypass=1
 
 ## Go to web part maintenance
