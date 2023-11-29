@@ -40,6 +40,8 @@
 
 /_layouts/15/people.aspx?MembershipGroupId=0
 
+/_layouts/15/groups.aspx
+
 ## Workflow history list
 /Lists/Workflow%20History/AllItems.aspx
 
